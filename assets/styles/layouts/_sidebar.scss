@@ -1,0 +1,8 @@
+.sidebar{
+    padding-bottom: $grid-gutter-width;
+    .widget{
+        &:first-child{
+            margin-top: $grid-gutter-width*1.5;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+.socials{
+    white-space: nowrap;
+    display: inline-block;
+    
+    >span{
+        display: none;
+        @media (min-width: $screen-md-min){
+            display: inline;
+            margin-right: 0.5em;
+        }
+    }
+    a{
+        color: $navbar-default-link-color;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        transition: all .2s ease;
+        line-height: 1.6em;
+        width: 1.7em;
+        height: 1.7em;
+        padding: inherit;
+        transition: .3s ease-in-out;
+        transition-property: color, background-color, border-color;
+
+        @media (min-width: $screen-sm-min){
+            color: $navbar-default-link-hover-color;
+            background-color: #fff;
+        }
+
+        &+a{
+            margin-left: 0.5em;
+        }
+
+        &:hover,
+        &:focus{
+            color: #fff;
+            background-color: $navbar-default-link-hover-color;
+            border-color: $navbar-default-link-hover-color;
+            text-decoration: none !important;
+        }
+
+        .fa{
+            vertical-align: middle;
+        }
+    }
+}
+

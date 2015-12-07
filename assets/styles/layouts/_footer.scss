@@ -1,0 +1,114 @@
+.content-info{
+    position: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background-color: $brand-primary;
+        z-index: -1;
+    }
+
+
+    h1,h2,h3,h4,h5,h6{
+        color: darken($accent-color, 20%);
+        font-size: ceil(($font-size-base * 1.36));
+    }
+
+    a{
+        transition: .3s ease-in-out;
+        transition-property: background-color, border-color;
+
+        &:hover,
+        &:focus{
+            color: $accent-color;
+        }
+    }
+
+    p,ul:not(.gform_fields){
+         font-size: ceil($font-size-base * 0.9);
+    }
+
+    .container{
+        padding-top: $grid-gutter-width*1.5;
+        padding-bottom: $grid-gutter-width;
+        position: relative;
+
+        .holder{
+
+            @media (min-width: $screen-md-min){
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+            }
+            > section{
+                & + section{
+                    margin-top: 1em;
+                    @media (min-width: $screen-md-min){
+                        padding-left: 2em;
+                    }
+                }
+                @media (min-width: $screen-md-min){
+                    display: table-cell;
+                    vertical-align: top;
+                    & + section{
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .widget{
+        ul{
+            list-style: none;
+            padding-left: 0;
+            li{
+                &+li{
+                    margin-top: .5em;
+                }
+            }
+        }
+        h3:first-child{
+            margin-top: 0;
+        }
+        .post-date{
+             display: block;
+        }
+        .menu{
+            >li{
+                display: inline-block;
+
+                .dropdown-menu{
+                    font-size: inherit;
+                    a{
+                         display: block;
+                    }
+                }
+            }
+        }
+    }
+    
+    .widget_recent_entries{
+        a{
+            font-weight: bold;
+        }
+    }
+
+    .gform_wrapper{
+        .validation_error{
+            display: none;
+        }
+        .gfield_error{
+            .validation_message{
+                color: $brand-danger;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+

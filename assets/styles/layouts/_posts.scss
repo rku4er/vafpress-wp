@@ -1,0 +1,35 @@
+.post,
+.hentry{
+    margin-bottom: $grid-gutter-width/2;
+    &:first-child{
+        margin-top: $grid-gutter-width*1.5;
+    }
+}
+.hentry .entry-title{
+    margin-top: 0;
+}
+.posts-nav{
+    @extend .clearfix;
+    margin-bottom: $grid-gutter-width;
+
+    .prev-posts-link,
+    .next-posts-link{
+        background-color: rgba(255,255,255,.3);
+        padding: $nav-link-padding;
+        border-radius: 4px;
+        color: $link-hover-color;
+        transition: color .2s cubic-bezier(0.19, 1, 0.22, 1);
+        &:hover,
+        &:focus{
+            color: white;
+        }
+    }
+
+    .prev-posts-link{
+        float: right;
+    }
+    .next-posts-link{
+        float: left;
+    }
+}
+

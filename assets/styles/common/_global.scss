@@ -1,0 +1,52 @@
+/*
+ * Selection color
+ */
+*::-moz-selection {
+    color: #fff;
+    background: $brand-primary;
+    text-shadow: none;
+}
+*::selection {
+    color: #fff;
+    background: $brand-primary;
+    text-shadow: none;
+}
+
+/*
+ * Headings margins
+ */
+h1, h2, h3, h4, h5, h6{
+     margin: 1.7em 0 .3em;
+}
+
+/*
+ * Sticky footer
+ */
+html,
+body {
+    height: 100%;
+}
+.wrap {
+    min-height: 100%;
+    padding-top: 78px;
+    @extend .clearfix;
+}
+
+/*
+ * Reset .main position
+ */
+.main{
+    position: static !important;
+}
+
+/*
+ * More
+ */
+a.more{
+     color: $accent-color;
+     text-transform: uppercase;
+     &:hover,
+     &:focus{
+          text-decoration: underline;
+     }
+}
