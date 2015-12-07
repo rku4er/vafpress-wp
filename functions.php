@@ -20,7 +20,7 @@ $sage_includes = [
   'lib/shortcodes.php',            // Shortcodes
   'lib/customizer.php',            // Theme customizer
   'lib/soil/soil.php',             // Soil Modules
-  'admin/admin-init.php',          // Admin Options
+  'admin/admin-init.php',          // Theme Options
 ];
 
 foreach ($sage_includes as $file) {
