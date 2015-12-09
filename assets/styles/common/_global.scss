@@ -27,9 +27,10 @@ body {
     height: 100%;
 }
 .wrap {
-    min-height: 100%;
-    padding-top: 78px;
     @extend .clearfix;
+}
+.navbar-fixed-top ~ .wrap{
+    padding-top: 78px;
 }
 
 /*

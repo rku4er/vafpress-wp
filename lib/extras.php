@@ -130,27 +130,27 @@ function sage_page_specific_css(){
  */
 add_action( 'get_header', __NAMESPACE__ . '\\sage_custom_html', 999 );
 function sage_custom_html(){
-    global $redux_demo;
-    $editor_content = $redux_demo['custom-html-editor'];
+    $options = vp_option('vpt_option');
+    $editor_content = $options['editor_html'];
     echo $editor_content ? $editor_content : '';
 }
 /**
  * Custom CSS
  */
-add_action( 'get_header', __NAMESPACE__ . '\\sage_custom_css', 999 );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\sage_custom_css', 999 );
 function sage_custom_css(){
-    global $redux_demo;
-    $editor_content = $redux_demo['custom-css-editor'];
-    echo $editor_content ? '<style>'. $editor_content .'</style>' : '';
+    $options = vp_option('vpt_option');
+    $editor_content = $options['editor_css'];
+    wp_add_inline_style( 'sage_css', $editor_content );
 }
 
 /**
  * Custom JS
  */
-add_action( 'get_footer', __NAMESPACE__ . '\\sage_custom_js', 999 );
+add_action( 'wp_footer', __NAMESPACE__ . '\\sage_custom_js', 999 );
 function sage_custom_js(){
-    global $redux_demo;
-    $editor_content = $redux_demo['custom-js-editor'];
+    $options = vp_option('vpt_option');
+    $editor_content = $options['editor_js'];
     echo $editor_content ? '<script>'. $editor_content .'</script>' : '';
 }
 
@@ -160,9 +160,8 @@ function sage_custom_js(){
  */
 add_action('wp_head', __NAMESPACE__ . '\\sage_site_favicon');
 function sage_site_favicon() {
-    global $redux_demo;
-    $options = $redux_demo;
-    $favicon = $options['favicon']['url'] ? $options['favicon']['url'] : get_template_directory_uri().'/dist/images/favicon.ico';
+    $options = vp_option('vpt_option');
+    $favicon = $options['favicon'] ? $options['favicon'] : get_template_directory_uri().'/dist/images/favicon.ico';
     echo '<link rel="shortcut icon" href="'. $favicon .'">';
 }
 

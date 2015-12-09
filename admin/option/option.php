@@ -202,7 +202,7 @@ return array(
                             'fields' => array(
                                 array(
                                     'type' => 'radiobutton',
-                                    'name' => 'navbar_container',
+                                    'name' => 'navbar_position',
                                     'label' => __('Position', 'vp_textdomain'),
                                     'items' => array(
                                         array(
@@ -224,7 +224,7 @@ return array(
                                 ),
                                 array(
                                     'type' => 'radiobutton',
-                                    'name' => 'navbar_layout',
+                                    'name' => 'navbar_container',
                                     'label' => __('Container', 'vp_textdomain'),
                                     'items' => array(
                                         array(
@@ -248,9 +248,16 @@ return array(
                             'fields' => array(
                                 array(
                                     'type' => 'toggle',
-                                    'name' => 'title_tagline_show',
-                                    'label' => __('Title/Tagline', 'vp_textdomain'),
-                                    'description' => __('Display title/tagline beside logo', 'vp_textdomain'),
+                                    'name' => 'title_show',
+                                    'label' => __('Title', 'vp_textdomain'),
+                                    'description' => __('Display title beside logo', 'vp_textdomain'),
+                                    'default' => '0',
+                                ),
+                                array(
+                                    'type' => 'toggle',
+                                    'name' => 'tagline_show',
+                                    'label' => __('Tagline', 'vp_textdomain'),
+                                    'description' => __('Display tagline beside logo', 'vp_textdomain'),
                                     'default' => '0',
                                 ),
                                 array(
@@ -556,21 +563,21 @@ return array(
                                     'type' => 'codeeditor',
                                     'name' => 'editor_css',
                                     'label' => __('Custom CSS', 'vp_textdomain'),
-                                    'description' => __('Write your custom css here.', 'vp_textdomain'),
+                                    'description' => __('Styles will be placed in header after the main stylesheet', 'vp_textdomain'),
                                     'mode' => 'css',
                                 ),
                                 array(
                                     'type' => 'codeeditor',
                                     'name' => 'editor_js',
                                     'label' => __('Custom JS', 'vp_textdomain'),
-                                    'description' => __('Write your custom javascript here.', 'vp_textdomain'),
+                                    'description' => __('Scripts will be placed at the very bottom of the page', 'vp_textdomain'),
                                     'mode' => 'javascript',
                                 ),
                                 array(
                                     'type' => 'codeeditor',
                                     'name' => 'editor_html',
                                     'label' => __('Custom HTML', 'vp_textdomain'),
-                                    'description' => __('Write your custom html here.', 'vp_textdomain'),
+                                    'description' => __('Custom HTML will be added right after the &lt;body&gt; tag opens', 'vp_textdomain'),
                                     'mode' => 'html',
                                 ),
                             ),

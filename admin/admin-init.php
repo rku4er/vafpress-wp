@@ -48,7 +48,7 @@ $theme_options = new VP_Option(array(
     'use_auto_group_naming' => true,                                   // default to true
     'use_util_menu'         => true,                                   // default to true, shows utility menu
     'minimum_role'          => 'edit_theme_options',                   // default to 'edit_theme_options'
-    'layout'                => 'fixed',                                // fluid or fixed, default to fixed
+    'layout'                => 'fluid',                                // fluid or fixed, default to fixed
     'page_title'            => __( 'Theme Options', 'vp_textdomain' ), // page title
     'menu_label'            => __( 'Theme Options', 'vp_textdomain' ), // menu label
 ));
@@ -56,14 +56,14 @@ $theme_options = new VP_Option(array(
 /**
  * Create instances of Metaboxes
  */
-$mb1 = new VP_Metabox($tmpl_mb1);
+//$mb1 = new VP_Metabox($tmpl_mb1);
 $mb2 = new VP_Metabox($tmpl_mb2);
-$mb3 = new VP_Metabox($tmpl_mb3);
-$mb4 = new VP_Metabox($tmpl_mb4);
-$mb5 = new VP_Metabox($tmpl_mb5);
-$mb6 = new VP_Metabox($tmpl_mb6);
-$mb7 = new VP_Metabox($tmpl_mb7);
-$mb8 = new VP_Metabox($tmpl_mb8);
+//$mb3 = new VP_Metabox($tmpl_mb3);
+//$mb4 = new VP_Metabox($tmpl_mb4);
+//$mb5 = new VP_Metabox($tmpl_mb5);
+//$mb6 = new VP_Metabox($tmpl_mb6);
+//$mb7 = new VP_Metabox($tmpl_mb7);
+//$mb8 = new VP_Metabox($tmpl_mb8);
 
 /**
  * Create instances of Shortcode Generator
@@ -89,7 +89,7 @@ $tmpl_sg2 = array(
 $sg1 = new VP_ShortcodeGenerator($tmpl_sg1);
 $sg2 = new VP_ShortcodeGenerator($tmpl_sg2);
 
-/*
+/**
  * EOF
  */
 

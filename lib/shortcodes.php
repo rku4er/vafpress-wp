@@ -193,8 +193,8 @@ function sage_socials( $attr ){
     );
     $atts = wp_parse_args( $atts, $defaults );
 
-    global $redux_demo;
-    $socials = $redux_demo['socials'];
+    $options = vp_option('vpt_option');
+    $socials = $options['socials'];
 
     if($socials){
         $buffer = '<span class="socials">';

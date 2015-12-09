@@ -1,31 +1,23 @@
 <?php
-    global $redux_demo;
-    $options = $redux_demo;
-
-    $navbar_logo = $options['navbar-logo'];
-    $logo_image = $navbar_logo['url'] ? '<img src="' . esc_url($navbar_logo['url']) . '" alt="' . get_bloginfo('name') . '">' : '';
-    $navbar_brand = sprintf(
-        '<a class="%s" href="%s">%s</a>',
+    $options = vp_option('vpt_option');
+    $logo_image = $options['logo'] ? '<img src="' . esc_url($options['logo']) . '" alt="' . get_bloginfo('name') . '">' : '';
+    $navbar_brand = sprintf('<a class="%s" href="%s">%s%s%s</a>',
         esc_attr('navbar-brand withoutripple'),
         esc_url(home_url('/')),
-        ($options['navbar-logo-text'] === '1') ? $logo_image. '<strong>'.get_bloginfo('name').'</strong><span>'.get_bloginfo('description') . '</span>' : $logo_image
+        $logo_image,
+        $options['title_show'] ? '<strong>'.get_bloginfo('name').'</strong>' : '',
+        $options['tagline_show'] ? '<span>'.get_bloginfo('description') . '</span>' : ''
     );
 
-    if($options['navbar-position'] === '1'){
-        $navbar_class = 'navbar-static-top';
-    }else if($options['navbar-position'] === '2'){
-        $navbar_class = 'navbar-fixed-top';
-    }else if($options['navbar-position'] === '3'){
-        $navbar_class = 'navbar_fixed_bottom';
-    }
+    $navbar_class = 'navbar-'. $options['navbar_position'];
 
-    if($options['header-layout'] === '1'){
+    if($options['navbar_container'] === 'fixed'){
         $container_class = 'container';
-    }else if($options['header-layout'] === '2'){
+    }else if($options['navbar_container'] === 'fluid'){
         $container_class = 'container-fluid';
     }
 
-    $socials = ($options['socials-in-header'] != 0) ? do_shortcode('[socials]') : '';
+    $socials = $options['socials_show'] ? do_shortcode('[socials]') : '';
 ?>
 
 <header class="banner navbar navbar-default <?php echo $navbar_class; ?>" role="banner">

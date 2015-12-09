@@ -131,8 +131,8 @@
                 }
             });
 
-            $('.wrap').css('padding-bottom', $('.content-info').height());
-            $('.content-info').css('margin-top', -$('.content-info').height());
+            //$('.wrap').css('padding-bottom', $('.content-info').height());
+            //$('.content-info').css('margin-top', -$('.content-info').height());
 
         }, 100);
 

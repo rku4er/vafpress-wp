@@ -18,14 +18,12 @@
         right: 0;
         bottom: 0;
 
-        background-color: $brand-primary;
         z-index: -1;
     }
 
     /*navbar header*/
     .navbar-header{
-        padding-top: $navbar-padding-vertical;
-        padding-bottom: $navbar-padding-vertical;
+        padding: $navbar-padding-vertical 0;
     }
 
     /*navbar collapse*/
@@ -71,7 +69,7 @@
     .navbar-brand{
         line-height: 1;
         padding: 0;
-        height: $navbar-height;
+        height: auto;
         line-height: auto;
         display: block;
         float: none;
@@ -79,7 +77,6 @@
 
         @media (max-width: $screen-xs-max){
             margin-left: 80px;
-            margin-right: $grid-gutter-width/2;
         }
 
         @media (min-width: $screen-sm-min){
@@ -94,7 +91,6 @@
 
             @media (min-width: $screen-sm-min){
                 display: inline-block;
-                vertical-align: middle;
                 line-height: $navbar-height;
                 font-size: 25px;
             }
@@ -102,6 +98,7 @@
         strong{
             font-family: 'district_probook';
             font-weight: normal;
+            margin-right: .5em;
 
             @media (max-width: $screen-xs-max){
                 padding: 5px 0;
@@ -109,45 +106,14 @@
         }
         span{
             font-family: 'district_prothin';
-
-            &:before{
-                content: "";
-                display: none;
-                margin: 0 .4em;
-                width: 0;
-                height: 1em;
-                border: solid $accent-color;
-                border-width: 0 0 0 2px;
-            }
-
-            @media (max-width: $screen-xs-max){
-                font-size: 0.7em;
-            }
-
-            @media (min-width: $screen-sm-min){
-                &:before{
-                    display: inline-block;
-                    vertical-align: middle;
-                    line-height: $navbar-height;
-                }
-            }
+            font-size: .6em;
         }
         img{
             float: left;
             width: auto;
             max-width: 100%;
-            max-height: 100%;
-
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-
-            @media (max-width: $screen-xs-max){
-                margin-right: 10px;
-            }
-            @media (min-width: $screen-lg-min){
-                margin-left: $grid-gutter-width/2;
-            }
+            max-height: $navbar-height;
+            margin-right: $grid-gutter-width/2;
         }
 
     }
