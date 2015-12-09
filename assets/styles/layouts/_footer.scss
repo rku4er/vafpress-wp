@@ -81,10 +81,10 @@
         }
         .menu{
             >li{
-                display: inline-block;
+                position: relative;
 
                 .dropdown-menu{
-                    font-size: inherit;
+                    min-width: 50%;
                     a{
                          display: block;
                     }
