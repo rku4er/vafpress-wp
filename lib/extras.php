@@ -137,18 +137,37 @@ function sage_choice_render($choice_markup, $choice, $field, $value){
 
 
 /**
- * Add page specific CSS
+ * Page template builder
  */
 
-//add_action( 'get_footer', __NAMESPACE__ . '\\sage_page_specific_css', 9999 );
+add_action( 'the_content', __NAMESPACE__ . '\\sage_page_template_builder', 9999 );
 
-//function sage_page_specific_css(){
-    //global $wp_query;
-    //$page_ID = $wp_query->queried_object->ID;
-    //$prefix = 'sage_page_options_';
-    //$page_css = get_post_meta( $page_ID, $prefix .'css', true );
-    //echo $page_css ? '<style>' . $page_css . '</style>' : '';
-//}
+function sage_page_template_builder($content){
+    $page_builder = vp_metabox('page_builder.use_pb');
+    $html = $content;
+
+    if($page_builder) {
+
+        $rows = vp_metabox('page_builder.row');
+
+        foreach( $rows as $row ) {
+
+            $html .= '[row]';
+            $columns = $row['column'];
+
+            foreach( $columns as $col ) {
+                $html .= '[column sm="'. $col['grid'] .'"]';
+                $html .= $col['content'];
+                $html .= '[/column]';
+            }
+
+            $html .= '[/row]';
+        }
+
+    }
+
+    echo do_shortcode($html);
+}
 
 
 /**

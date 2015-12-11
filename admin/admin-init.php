@@ -10,8 +10,8 @@
 /**
  * Include Custom Data Sources
  */
- if ( file_exists( dirname( __FILE__ ).'/data_sources.php' ) ) {
-     require_once dirname(__FILE__).'/data_sources.php';
+ if ( file_exists( dirname( __FILE__ ).'/data-sources.php' ) ) {
+     require_once dirname(__FILE__).'/data-sources.php';
  }
 
 /**
