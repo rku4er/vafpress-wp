@@ -63,14 +63,28 @@ return array(
                                 array(
                                     'type' => 'color',
                                     'name' => 'body_bg_color',
-                                    'label' => __('Body background', 'vp_textdomain'),
-                                    'format' => 'rgba',
+                                    'label' => __('Background color', 'vp_textdomain'),
+                                    'format' => 'rgb',
                                     'default' => '',
                                 ),
                                 array(
                                     'type' => 'color',
                                     'name' => 'body_text_color',
-                                    'label' => __('Body text color', 'vp_textdomain'),
+                                    'label' => __('Text color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'body_link_color',
+                                    'label' => __('Link color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'body_link_hover_color',
+                                    'label' => __('Hover color', 'vp_textdomain'),
                                     'format' => 'rgb',
                                     'default' => '',
                                 ),
@@ -78,20 +92,69 @@ return array(
                         ),
                         array(
                             'type' => 'section',
-                            'title' => __('Logo', 'vp_textdomain'),
-                            'description' => __('Logo color settings', 'vp_textdomain'),
+                            'title' => __('Navbar', 'vp_textdomain'),
+                            'description' => __('Navbar color settings', 'vp_textdomain'),
                             'fields' => array(
                                 array(
                                     'type' => 'color',
-                                    'name' => 'logo_bg_color',
-                                    'label' => __('Logo background', 'vp_textdomain'),
+                                    'name' => 'navbar_bg_color',
+                                    'label' => __('Background color', 'vp_textdomain'),
                                     'format' => 'rgba',
                                     'default' => '',
                                 ),
                                 array(
                                     'type' => 'color',
-                                    'name' => 'logo_text_color',
-                                    'label' => __('Logo text color', 'vp_textdomain'),
+                                    'name' => 'logo_color',
+                                    'label' => __('Logo color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'logo_hover_color',
+                                    'label' => __('Logo hover color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'menu_link_color',
+                                    'label' => __('Menu link color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'menu_link_hover_color',
+                                    'label' => __('Menu link hover color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'dropdown_link_bg_color',
+                                    'label' => __('Dropdown link background color', 'vp_textdomain'),
+                                    'format' => 'rgba',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'dropdown_link_color',
+                                    'label' => __('Dropdown link color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'dropdown_link_hover_bg_color',
+                                    'label' => __('Dropdown link hover background color', 'vp_textdomain'),
+                                    'format' => 'rgba',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'dropdown_link_hover_color',
+                                    'label' => __('Dropdown link hover color', 'vp_textdomain'),
                                     'format' => 'rgb',
                                     'default' => '',
                                 ),
@@ -99,41 +162,41 @@ return array(
                         ),
                         array(
                             'type' => 'section',
-                            'title' => __('Header', 'vp_textdomain'),
-                            'description' => __('Header color settings', 'vp_textdomain'),
+                            'title' => __('Content info', 'vp_textdomain'),
+                            'description' => __('Content info color settings', 'vp_textdomain'),
                             'fields' => array(
                                 array(
                                     'type' => 'color',
-                                    'name' => 'header_bg_color',
-                                    'label' => __('Header background', 'vp_textdomain'),
+                                    'name' => 'content_info_bg_color',
+                                    'label' => __('Background color', 'vp_textdomain'),
                                     'format' => 'rgba',
                                     'default' => '',
                                 ),
                                 array(
                                     'type' => 'color',
-                                    'name' => 'header_text_color',
-                                    'label' => __('Header text color', 'vp_textdomain'),
+                                    'name' => 'content_info_text_color',
+                                    'label' => __('Text color', 'vp_textdomain'),
                                     'format' => 'rgb',
                                     'default' => '',
                                 ),
-                            ),
-                        ),
-                        array(
-                            'type' => 'section',
-                            'title' => __('Footer', 'vp_textdomain'),
-                            'description' => __('Footer color settings', 'vp_textdomain'),
-                            'fields' => array(
                                 array(
                                     'type' => 'color',
-                                    'name' => 'footer_bg_color',
-                                    'label' => __('Footer background', 'vp_textdomain'),
-                                    'format' => 'rgba',
+                                    'name' => 'content_info_headings_color',
+                                    'label' => __('Headings color', 'vp_textdomain'),
+                                    'format' => 'rgb',
                                     'default' => '',
                                 ),
                                 array(
                                     'type' => 'color',
-                                    'name' => 'footer_text_color',
-                                    'label' => __('Footer text color', 'vp_textdomain'),
+                                    'name' => 'content_info_link_color',
+                                    'label' => __('Link color', 'vp_textdomain'),
+                                    'format' => 'rgb',
+                                    'default' => '',
+                                ),
+                                array(
+                                    'type' => 'color',
+                                    'name' => 'content_info_link_hover_color',
+                                    'label' => __('Link hover color', 'vp_textdomain'),
                                     'format' => 'rgb',
                                     'default' => '',
                                 ),
@@ -340,6 +403,9 @@ return array(
                                             ),
                                         ),
                                     ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
                                 ),
                                 array(
                                     'type' => 'multiselect',
@@ -377,13 +443,295 @@ return array(
                         ),
                         array(
                             'type' => 'section',
+                            'title' => __('Logo font', 'vp_textdomain'),
+                            'fields' => array(
+                                array(
+                                    'type' => 'html',
+                                    'name' => 'logo_font_preview',
+                                    'binding' => array(
+                                        'field'    => 'logo_font_face,logo_font_style,logo_font_weight,logo_font_size, logo_line_height',
+                                        'function' => 'vp_font_preview',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'select',
+                                    'name' => 'logo_font_face',
+                                    'label' => __('Font Face', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'function',
+                                                'value' => 'vp_get_gwf_family',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => '{{first}}'
+                                ),
+                                array(
+                                    'type' => 'radiobutton',
+                                    'name' => 'logo_font_style',
+                                    'label' => __('Font Style', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'logo_font_face',
+                                                'value' => 'vp_get_gwf_style',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'radiobutton',
+                                    'name' => 'logo_font_weight',
+                                    'label' => __('Font Weight', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'logo_font_face',
+                                                'value' => 'vp_get_gwf_weight',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'multiselect',
+                                    'name' => 'logo_font_subset',
+                                    'label' => __('Font Subset', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'logo_font_face',
+                                                'value' => 'vp_get_gwf_subset',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => 'latin'
+                                ),
+                                array(
+                                    'type'    => 'slider',
+                                    'name'    => 'logo_font_size',
+                                    'label'   => __('Font Size (px)', 'vp_textdomain'),
+                                    'min'     => '5',
+                                    'max'     => '32',
+                                    'default' => '16',
+                                ),
+                                array(
+                                    'type'    => 'slider',
+                                    'name'    => 'logo_line_height',
+                                    'label'   => __('Line Height (em)', 'vp_textdomain'),
+                                    'min'     => '0',
+                                    'max'     => '3',
+                                    'default' => '1.5',
+                                    'step'    => '0.1',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'type' => 'section',
+                            'title' => __('Menu font', 'vp_textdomain'),
+                            'fields' => array(
+                                array(
+                                    'type' => 'html',
+                                    'name' => 'menu_font_preview',
+                                    'binding' => array(
+                                        'field'    => 'menu_font_face,menu_font_style,menu_font_weight,menu_font_size, menu_line_height',
+                                        'function' => 'vp_font_preview',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'select',
+                                    'name' => 'menu_font_face',
+                                    'label' => __('Font Face', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'function',
+                                                'value' => 'vp_get_gwf_family',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => '{{first}}'
+                                ),
+                                array(
+                                    'type' => 'radiobutton',
+                                    'name' => 'menu_font_style',
+                                    'label' => __('Font Style', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'menu_font_face',
+                                                'value' => 'vp_get_gwf_style',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'radiobutton',
+                                    'name' => 'menu_font_weight',
+                                    'label' => __('Font Weight', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'menu_font_face',
+                                                'value' => 'vp_get_gwf_weight',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'multiselect',
+                                    'name' => 'menu_font_subset',
+                                    'label' => __('Font Subset', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'menu_font_face',
+                                                'value' => 'vp_get_gwf_subset',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => 'latin'
+                                ),
+                                array(
+                                    'type'    => 'slider',
+                                    'name'    => 'menu_font_size',
+                                    'label'   => __('Font Size (px)', 'vp_textdomain'),
+                                    'min'     => '5',
+                                    'max'     => '32',
+                                    'default' => '16',
+                                ),
+                                array(
+                                    'type'    => 'slider',
+                                    'name'    => 'menu_line_height',
+                                    'label'   => __('Line Height (em)', 'vp_textdomain'),
+                                    'min'     => '0',
+                                    'max'     => '3',
+                                    'default' => '1.5',
+                                    'step'    => '0.1',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'type' => 'section',
+                            'title' => __('Dropdown font', 'vp_textdomain'),
+                            'fields' => array(
+                                array(
+                                    'type' => 'html',
+                                    'name' => 'dropdown_font_preview',
+                                    'binding' => array(
+                                        'field'    => 'dropdown_font_face,dropdown_font_style,dropdown_font_weight,dropdown_font_size, dropdown_line_height',
+                                        'function' => 'vp_font_preview',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'select',
+                                    'name' => 'dropdown_font_face',
+                                    'label' => __('Font Face', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'function',
+                                                'value' => 'vp_get_gwf_family',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => '{{first}}'
+                                ),
+                                array(
+                                    'type' => 'radiobutton',
+                                    'name' => 'dropdown_font_style',
+                                    'label' => __('Font Style', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'dropdown_font_face',
+                                                'value' => 'vp_get_gwf_style',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'radiobutton',
+                                    'name' => 'dropdown_font_weight',
+                                    'label' => __('Font Weight', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'dropdown_font_face',
+                                                'value' => 'vp_get_gwf_weight',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
+                                ),
+                                array(
+                                    'type' => 'multiselect',
+                                    'name' => 'dropdown_font_subset',
+                                    'label' => __('Font Subset', 'vp_textdomain'),
+                                    'items' => array(
+                                        'data' => array(
+                                            array(
+                                                'source' => 'binding',
+                                                'field' => 'dropdown_font_face',
+                                                'value' => 'vp_get_gwf_subset',
+                                            ),
+                                        ),
+                                    ),
+                                    'default' => 'latin'
+                                ),
+                                array(
+                                    'type'    => 'slider',
+                                    'name'    => 'dropdown_font_size',
+                                    'label'   => __('Font Size (px)', 'vp_textdomain'),
+                                    'min'     => '5',
+                                    'max'     => '32',
+                                    'default' => '16',
+                                ),
+                                array(
+                                    'type'    => 'slider',
+                                    'name'    => 'dropdown_line_height',
+                                    'label'   => __('Line Height (em)', 'vp_textdomain'),
+                                    'min'     => '0',
+                                    'max'     => '3',
+                                    'default' => '1.5',
+                                    'step'    => '0.1',
+                                ),
+                            ),
+                        ),
+                        array(
+                            'type' => 'section',
                             'title' => __('Headings font', 'vp_textdomain'),
                             'fields' => array(
                                 array(
                                     'type' => 'html',
                                     'name' => 'headings_font_preview',
                                     'binding' => array(
-                                        'field'    => 'headings_font_face,headings_font_style,headings_font_weight,headings_h1_font_size,headings_line_height',
+                                        'field'    => 'headings_font_face,headings_font_style,headings_font_weight,h1_font_size,headings_line_height',
                                         'function' => 'vp_font_preview',
                                     ),
                                 ),
@@ -431,6 +779,9 @@ return array(
                                             ),
                                         ),
                                     ),
+                                    'default' => array(
+                                        '{{first}}',
+                                    ),
                                 ),
                                 array(
                                     'type' => 'multiselect',
@@ -458,7 +809,7 @@ return array(
                                 ),
                                 array(
                                     'type'    => 'slider',
-                                    'name'    => 'headings_h1_font_size',
+                                    'name'    => 'h1_font_size',
                                     'label'   => __('H1 Font Size (px)', 'vp_textdomain'),
                                     'min'     => '10',
                                     'max'     => '50',
@@ -466,7 +817,7 @@ return array(
                                 ),
                                 array(
                                     'type'    => 'slider',
-                                    'name'    => 'headings_h2_font_size',
+                                    'name'    => 'h2_font_size',
                                     'label'   => __('H2 Font Size (px)', 'vp_textdomain'),
                                     'min'     => '10',
                                     'max'     => '50',
@@ -474,7 +825,7 @@ return array(
                                 ),
                                 array(
                                     'type'    => 'slider',
-                                    'name'    => 'headings_h3_font_size',
+                                    'name'    => 'h3_font_size',
                                     'label'   => __('H3 Font Size (px)', 'vp_textdomain'),
                                     'min'     => '10',
                                     'max'     => '50',
@@ -482,7 +833,7 @@ return array(
                                 ),
                                 array(
                                     'type'    => 'slider',
-                                    'name'    => 'headings_h4_font_size',
+                                    'name'    => 'h4_font_size',
                                     'label'   => __('H4 Font Size (px)', 'vp_textdomain'),
                                     'min'     => '10',
                                     'max'     => '50',
@@ -490,7 +841,7 @@ return array(
                                 ),
                                 array(
                                     'type'    => 'slider',
-                                    'name'    => 'headings_h5_font_size',
+                                    'name'    => 'h5_font_size',
                                     'label'   => __('H5 Font Size (px)', 'vp_textdomain'),
                                     'min'     => '10',
                                     'max'     => '50',
@@ -498,7 +849,7 @@ return array(
                                 ),
                                 array(
                                     'type'    => 'slider',
-                                    'name'    => 'headings_h6_font_size',
+                                    'name'    => 'h6_font_size',
                                     'label'   => __('H6 Font Size (px)', 'vp_textdomain'),
                                     'min'     => '10',
                                     'max'     => '50',

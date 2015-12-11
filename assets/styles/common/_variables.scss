@@ -21,9 +21,7 @@ $gray:                   lighten($gray-base, 33.5%); // #555
 $gray-light:             lighten($gray-base, 46.7%); // #777
 $gray-lighter:           lighten($gray-base, 93.5%); // #eee
 
-$brand-primary:         #999;
-$accent-color:          #BA56A7;
-
+$brand-primary:         #AD23EE;
 $brand-success:         #5cb85c;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
@@ -40,9 +38,9 @@ $body-bg:               #fff;
 $text-color:            $gray-dark;
 
 //** Global textual link color.
-$link-color:            $accent-color;
+$link-color:            $gray-darker;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      lighten($accent-color, 15%);
+$link-hover-color:      $gray-base;
 //** Link hover decoration.
 $link-hover-decoration: none;
 
@@ -74,10 +72,10 @@ $line-height-base:        1.375; // 22/16
 $line-height-computed:    floor(($font-size-base * $line-height-base)); // ~22px
 
 //** By default, this inherits from the `<body>`.
-$headings-font-family:    $font-family-sans-serif;
-$headings-font-weight:    300;
-$headings-line-height:    1.1;
-$headings-color:          $text-color;
+$headings-font-family:    ;
+$headings-font-weight:    400;
+$headings-line-height:    ;
+$headings-color:          ;
 
 
 //== Iconography
@@ -122,7 +120,7 @@ $border-radius-small:       $border-radius-base;
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff;
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       transparentize($accent-color, 0.4);
+$component-active-bg:       transparentize($brand-primary, 0.4);
 
 //** Width of the `border` for generating carets that indicator dropdowns.
 $caret-width-base:          4px;
@@ -158,8 +156,8 @@ $table-border-color:            lighten($brand-primary, 15%);
 $btn-font-weight:                400;
 
 $btn-default-color:              #fff;
-$btn-default-bg:                 rgba(98,125,147,.5);
-$btn-default-border:             $brand-primary;
+$btn-default-bg:                 $gray-light;
+$btn-default-border:             darken($gray-light, 5%);
 
 $btn-primary-color:              #fff;
 $btn-primary-bg:                 $brand-primary;
@@ -253,7 +251,7 @@ $dropdown-link-color:            $gray-dark;
 //** Hover color for dropdown links.
 $dropdown-link-hover-color:      #fff;
 //** Hover background for dropdown links.
-$dropdown-link-hover-bg:         $accent-color;
+$dropdown-link-hover-bg:         $gray;
 
 //** Active dropdown menu item text color.
 $dropdown-link-active-color:     $dropdown-link-color;
@@ -374,11 +372,11 @@ $navbar-collapse-max-height:       400px;
 
 $navbar-default-color:             $brand-primary;
 $navbar-default-bg:                #fff;
-$navbar-default-border:            darken($navbar-default-bg, 6.5%);
+$navbar-default-border:            transparent;
 
 // Navbar links
-$navbar-default-link-color:                $text-color;
-$navbar-default-link-hover-color:          $accent-color;
+$navbar-default-link-color:                ;
+$navbar-default-link-hover-color:          ;
 $navbar-default-link-hover-bg:             transparent;
 $navbar-default-link-active-color:         $navbar-default-link-hover-color;
 $navbar-default-link-active-bg:            transparent;
@@ -386,8 +384,8 @@ $navbar-default-link-disabled-color:       #ccc;
 $navbar-default-link-disabled-bg:          transparent;
 
 // Navbar brand label
-$navbar-default-brand-color:               $text-color;
-$navbar-default-brand-hover-color:         lighten($navbar-default-brand-color, 10%);
+$navbar-default-brand-color:               ;
+$navbar-default-brand-hover-color:         ;
 $navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
@@ -863,7 +861,7 @@ $headings-small-color:        $gray-light;
 //** Blockquote small color
 $blockquote-small-color:      $gray-light;
 //** Blockquote font size
-$blockquote-font-size:        ($font-size-base * 1.25);
+$blockquote-font-size:        ;
 //** Blockquote border color
 $blockquote-border-color:     $gray-lighter;
 //** Page header border color

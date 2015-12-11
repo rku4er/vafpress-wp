@@ -21,7 +21,7 @@
         &.active >a:hover,
         &.active >a:focus{
             border-width: 0 0 2px;
-            border-color: lighten($accent-color, 10%);
+            border-color: darken($brand-primary, 10%);
         }
         &.active >a{
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -81,13 +81,14 @@
             &.active >a{
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
                 transform: translate3d(1px,0,0);
-                border-right-color: lighten($accent-color, 10%);
-            } 
-            &.active >a,
-            &.active >a:hover,
-            &.active >a:focus{
-                border-right-width: 2px;
-                border-right-color: lighten($accent-color, 10%);
+                border-right-color: darken($brand-primary, 10%);
+
+                &,
+                &.active >a:hover,
+                &.active >a:focus{
+                    border-right-width: 2px;
+                    border-right-color: darken($brand-primary, 10%);
+                }
             }
         }
     }

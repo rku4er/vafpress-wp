@@ -1,12 +1,15 @@
 <?php
     $options = vp_option('vpt_option');
     $logo_image = $options['logo'] ? '<img src="' . esc_url($options['logo']) . '" alt="' . get_bloginfo('name') . '">' : '';
-    $navbar_brand = sprintf('<a class="%s" href="%s">%s%s%s</a>',
+    $navbar_brand = sprintf('<a class="%s" href="%s">%s%s</a>',
         esc_attr('navbar-brand withoutripple'),
         esc_url(home_url('/')),
         $logo_image,
-        $options['title_show'] ? '<strong>'.get_bloginfo('name').'</strong>' : '',
-        $options['tagline_show'] ? '<span>'.get_bloginfo('description') . '</span>' : ''
+        ($options['title_show'] || $options['tagline_show']) ? sprintf(
+            '<span class="text">%s%s</span>',
+            '<span class="name">'.get_bloginfo('name').'</span>',
+            '<span class="tagline">'.get_bloginfo('description') . '</span>'
+        ) : ''
     );
 
     $navbar_class = 'navbar-'. $options['navbar_position'];

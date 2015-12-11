@@ -1,7 +1,7 @@
 .navbar-default{
     border-width: 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     padding: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 
     /*remove navbar margin*/
     &.navbar-static-top,
@@ -9,26 +9,13 @@
         margin-bottom: 0;
     }
 
-    &:before{
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        z-index: -1;
-    }
-
     /*navbar header*/
     .navbar-header{
-        padding: $navbar-padding-vertical 0;
+        padding: $navbar-padding-vertical $grid-gutter-width/2;
     }
 
     /*navbar collapse*/
     .navbar-collapse{
-        position: relative;
         @media (min-width: $screen-sm-min){
             float: right;
             padding-top: $navbar-padding-vertical;
@@ -36,38 +23,9 @@
         }
     }
 
-    /*socials*/
-    .socials{
-        line-height: $navbar-height;
-
-        @media (min-width: $screen-sm-min){
-            position: absolute;
-            right: 0;
-            top: 100%;
-            margin-right: $grid-gutter-width/2;
-        }
-
-        @media (min-width: $screen-lg-min){
-            margin-right: $grid-gutter-width;
-        }
-
-        a{
-            text-shadow: 0 1px 2px transparentize($accent-color, 0.4);
-            box-shadow: 0 1px 2px transparentize($accent-color, 0.4);
-
-        }
-    }
-
-    @media (min-width: $screen-sm-min){
-        > .container .navbar-brand,
-        > .container-fluid .navbar-brand{
-            margin-left: 0;
-        }
-    }
-
     /*logo*/
     .navbar-brand{
-        line-height: 1;
+        font-size: inherit;
         padding: 0;
         height: auto;
         line-height: auto;
@@ -76,44 +34,36 @@
         outline: none;
 
         @media (max-width: $screen-xs-max){
-            margin-left: 80px;
+            margin-left: 60px;
         }
 
         @media (min-width: $screen-sm-min){
             display: inline-block;
             vertical-align: top;
-            white-space: nowrap;
         }
 
-        span,
-        strong{
-            display: block;
+        .text{
+            display: inline-block;
+            vertical-align: middle;
 
-            @media (min-width: $screen-sm-min){
-                display: inline-block;
-                line-height: $navbar-height;
-                font-size: 25px;
+            .name,
+            .tagline{
+                display: block;
+                white-space: nowrap;
             }
-        }
-        strong{
-            font-family: 'district_probook';
-            font-weight: normal;
-            margin-right: .5em;
-
-            @media (max-width: $screen-xs-max){
-                padding: 5px 0;
+            .tagline{
+                font-size: .6em;
             }
+
         }
-        span{
-            font-family: 'district_prothin';
-            font-size: .6em;
-        }
+
         img{
-            float: left;
             width: auto;
             max-width: 100%;
             max-height: $navbar-height;
             margin-right: $grid-gutter-width/2;
+            display: inline-block;
+            vertical-align: middle;
         }
 
     }
@@ -132,23 +82,12 @@
         float: none;
         margin-top: 0;
         margin-bottom: 0;
+
         @media (max-width: $screen-xs-max){
             overflow: hidden;
         }
 
-        @media (min-width: $screen-sm-min){
-            margin-right: $grid-gutter-width/2;
-        }
-
-        @media (min-width: $screen-lg-min){
-            margin-right: $grid-gutter-width;
-        }
-
         >li{
-            a{
-                 transition: .2s cubic-bezier(0.19, 1, 0.22, 1);
-                 transition-property: background-color, color;
-            }
             >a{
                 position: relative;
 
@@ -171,10 +110,6 @@
     }
 }
 
-/*caret*/
-.caret{
-    color: $accent-color;
-}
 
 /*dropdown menu*/
 .dropdown-menu{
@@ -182,8 +117,8 @@
     margin: 0;
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     border: 0 none;
-    min-width: 100%;
     max-width: 320px;
+    font-size: inherit;
 
     transform: translate3d(0,30px,0);
     top: 100%;
@@ -194,7 +129,7 @@
     opacity: 0;
     transition-property: transform, opacity;
     transition-duration: .2s;
-    transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     will-change: transform;
 
     >li{
@@ -211,13 +146,16 @@
                 height: 0;
                 overflow: hidden;
                 font-size: 0;
+
                 border-color: transparent;
                 border-style: solid;
                 border-width: 1em;
                 border-right-width: 0;
                 border-left-width: .5em;
                 border-left-color: $dropdown-link-hover-bg;
-                transition: .2s cubic-bezier(0.19, 1, 0.22, 1);
+
+                transition-duration: .2s;
+                transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
                 transition-property: border-color;
             }
             &:hover,

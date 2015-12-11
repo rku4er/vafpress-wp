@@ -4,10 +4,13 @@ namespace Roots\Sage\Extras;
 
 use Roots\Sage\Utils;
 
+
 /**
  * Add <body> classes
  */
+
 add_filter('body_class', __NAMESPACE__ . '\\sage_body_class');
+
 function sage_body_class($classes) {
   // Add page slug if it doesn't exist
   if (is_single() || is_page() && !is_front_page()) {
@@ -22,30 +25,39 @@ function sage_body_class($classes) {
   return $classes;
 }
 
+
 /**
  * Clean up the_excerpt()
  */
+
 add_filter('excerpt_more', __NAMESPACE__ . '\\sage_excerpt_more');
+
 function sage_excerpt_more() {
   return '&hellip; <a class="more" href="' . get_permalink() . '">' . __('Read More', 'sage') . '</a>';
 }
 
+
 /**
  * Filtering the Wrapper: Custom Post Types
  */
+
 add_filter('sage/wrap_base', __NAMESPACE__ . '\\sage_wrap_base_cpts');
+
 function sage_wrap_base_cpts($templates) {
     $cpt = get_post_type();
     if ($cpt) {
        array_unshift($templates, __NAMESPACE__ . 'base-' . $cpt . '.php');
     }
     return $templates;
-  }
+}
+
 
 /**
  * Search Filter
  */
+
 add_action('pre_get_posts', __NAMESPACE__ . '\\sage_search_filter');
+
 function sage_search_filter($query) {
   if ( !is_admin() && $query->is_main_query() ) {
     if ($query->is_search) {
@@ -54,10 +66,13 @@ function sage_search_filter($query) {
   }
 }
 
+
 /**
  * Login Image
  */
+
 add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\\sage_login_logo' );
+
 function sage_login_logo() { ?>
     <style type="text/css">
         body.login div#login h1 a {
@@ -75,7 +90,9 @@ function sage_login_logo() { ?>
 /**
  * Expand wp query
  */
+
 add_filter('pre_get_posts', __NAMESPACE__ . '\\sage_query_post_type');
+
 function sage_query_post_type($query) {
     if(is_category() || is_tag()) {
         $post_type = get_query_var('post_type');
@@ -88,10 +105,13 @@ function sage_query_post_type($query) {
     }
 }
 
+
 /**
  * Set default term on publish
  */
+
 add_action( 'publish_product', __NAMESPACE__ . '\\sage_set_prop_tax' );
+
 function sage_set_prop_tax($post_ID){
     $type = 'product_category';
     if(!has_term('',$type,$post_ID)){
@@ -100,11 +120,13 @@ function sage_set_prop_tax($post_ID){
     }
 }
 
+
 /**
  * Gravity Forms Field Choice Markup Pre-render
  */
 
 add_filter( 'gform_field_choice_markup_pre_render', __NAMESPACE__ . '\\sage_choice_render', 10, 4 );
+
 function sage_choice_render($choice_markup, $choice, $field, $value){
     if ( $field->get_input_type() == 'radio' || 'checkbox' ) {
         $choice_markup = preg_replace("/(<li[^>]*>)\s*(<input[^>]*>)\s*(<label[^>]*>)\s*([\w\s]*<\/label>\s*<\/li>)/", '$1$3$2$4', $choice_markup);
@@ -113,41 +135,54 @@ function sage_choice_render($choice_markup, $choice, $field, $value){
     return $choice_markup;
 }
 
+
 /**
  * Add page specific CSS
  */
-add_action( 'get_footer', __NAMESPACE__ . '\\sage_page_specific_css', 9999 );
-function sage_page_specific_css(){
-    global $wp_query;
-    $page_ID = $wp_query->queried_object->ID;
-    $prefix = 'sage_page_options_';
-    $page_css = get_post_meta( $page_ID, $prefix .'css', true );
-    echo $page_css ? '<style>' . $page_css . '</style>' : '';
-}
+
+//add_action( 'get_footer', __NAMESPACE__ . '\\sage_page_specific_css', 9999 );
+
+//function sage_page_specific_css(){
+    //global $wp_query;
+    //$page_ID = $wp_query->queried_object->ID;
+    //$prefix = 'sage_page_options_';
+    //$page_css = get_post_meta( $page_ID, $prefix .'css', true );
+    //echo $page_css ? '<style>' . $page_css . '</style>' : '';
+//}
+
 
 /**
  * Custom HTML
  */
+
 add_action( 'get_header', __NAMESPACE__ . '\\sage_custom_html', 999 );
+
 function sage_custom_html(){
     $options = vp_option('vpt_option');
     $editor_content = $options['editor_html'];
     echo $editor_content ? $editor_content : '';
 }
+
+
 /**
  * Custom CSS
  */
+
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\sage_custom_css', 999 );
+
 function sage_custom_css(){
     $options = vp_option('vpt_option');
     $editor_content = $options['editor_css'];
     wp_add_inline_style( 'sage_css', $editor_content );
 }
 
+
 /**
  * Custom JS
  */
+
 add_action( 'wp_footer', __NAMESPACE__ . '\\sage_custom_js', 999 );
+
 function sage_custom_js(){
     $options = vp_option('vpt_option');
     $editor_content = $options['editor_js'];
@@ -156,18 +191,192 @@ function sage_custom_js(){
 
 
 /**
+ * Google Web Fonts
+ */
+
+add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\sage_embed_fonts');
+
+// embed font function
+function sage_embed_fonts() {
+
+    // add the font
+    $options = vp_option('vpt_option');
+    $elements = array('body', 'logo', 'menu', 'headings', 'dropdown');
+
+    foreach( $elements as $el ) {
+        $font_face   = $options[$el .'_font_face'];
+        $font_weight = $options[$el .'_font_weight'];
+        $font_style  = $options[$el .'_font_style'];
+        \VP_Site_GoogleWebFont::instance()->add($font_face, $font_weight, $font_style);
+    }
+
+    \VP_Site_GoogleWebFont::instance()->register_and_enqueue();
+}
+
+
+/**
+ * Custom colors
+ */
+
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\sage_custom_colors', 999 );
+function sage_custom_colors(){
+    $options = vp_option('vpt_option');
+    $editor_content = '<style type="text/css">
+        body {
+            background-color: '. $options['body_bg_color'] .';
+            color: '. $options['body_text_color'] .';
+            font-family: '. $options['body_font_face'] .';
+            font-style: '. $options['body_font_style'] .';
+            font-weight: '. $options['body_font_weight'] .';
+            font-size: '. $options['body_font_size'] .'px;
+            line-height: '. $options['body_font_height'] .'em;
+        }
+
+        a {
+            color: '. $options['body_link_color'] .';
+        }
+
+        a:hover,
+        a:focus {
+            color: '. $options['body_link_hover_color'] .';
+        }
+
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: '. $options['headings_font_face'] .';
+            font-style: '. $options['headings_font_style'] .';
+            font-weight: '. $options['headings_font_weight'] .';
+            line-height: '. $options['headings_font_height'] .'em;
+        }
+
+        h1 {
+            color: '. $options['h1_color'] .';
+            font-size: '. $options['h1_font_size'] .'px;
+        }
+
+        h2 {
+            color: '. $options['h2_color'] .';
+            font-size: '. $options['h2_font_size'] .'px;
+        }
+
+        h3 {
+            color: '. $options['h3_color'] .';
+            font-size: '. $options['h3_font_size'] .'px;
+        }
+
+        h4 {
+            color: '. $options['h4_color'] .';
+            font-size: '. $options['h4_font_size'] .'px;
+        }
+
+        h5 {
+            color: '. $options['h5_color'] .';
+            font-size: '. $options['h5_font_size'] .'px;
+        }
+
+        h6 {
+            color: '. $options['h6_color'] .';
+            font-size: '. $options['h6_font_size'] .'px;
+        }
+
+
+        .navbar-default {
+            background-color: '. $options['navbar_bg_color'] .';
+        }
+
+
+        .navbar-default .navbar-brand {
+            color: '. $options['logo_color'] .';
+            font-family: '. $options['logo_font_face'] .';
+            font-style: '. $options['logo_font_style'] .';
+            font-weight: '. $options['logo_font_weight'] .';
+            font-size: '. $options['logo_font_size'] .'px;
+            line-height: '. $options['logo_font_height'] .'em;
+        }
+
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: '. $options['logo_hover_color'] .';
+        }
+
+
+        .navbar-default .navbar-nav >li >a{
+            color: '. $options['menu_link_color'] .';
+            font-family: '. $options['menu_font_face'] .';
+            font-style: '. $options['menu_font_style'] .';
+            font-weight: '. $options['menu_font_weight'] .';
+            font-size: '. $options['menu_font_size'] .'px;
+            line-height: '. $options['menu_font_height'] .'em;
+        }
+
+        .navbar-default .navbar-nav >li >a:hover,
+        .navbar-default .navbar-nav >li >a:focus,
+        .navbar-default .navbar-nav >li.active >a{
+            color: '. $options['menu_link_hover_color'] .';
+        }
+
+        .dropdown-menu >li >a {
+            background-color: '. $options['dropdown_link_bg_color'] .';
+            color: '. $options['dropdown_link_color'] .';
+            font-family: '. $options['dropdown_font_face'] .';
+            font-style: '. $options['dropdown_font_style'] .';
+            font-weight: '. $options['dropdown_font_weight'] .';
+            font-size: '. $options['dropdown_font_size'] .'px;
+            line-height: '. $options['dropdown_font_height'] .'em;
+        }
+        .dropdown-menu >li >a:hover,
+        .dropdown-menu >li >a:focus {
+            background-color: '. $options['dropdown_link_hover_bg_color'] .';
+            color: '. $options['dropdown_link_hover_color'] .';
+        }
+
+        .content-info {
+            background-color: '. $options['content_info_bg_color'] .';
+            color: '. $options['content_info_text_color'] .';
+        }
+
+        .content-info a{
+            color: '. $options['content_info_link_color'] .';
+        }
+
+        .content-info a:hover,
+        .content-info a:focus {
+            color: '. $options['content_info_link_hover_color'] .';
+        }
+
+
+        .content-info h1,
+        .content-info h2,
+        .content-info h3,
+        .content-info h4,
+        .content-info h5,
+        .content-info h6 {
+            color: '. $options['content_info_headings_color'] .';
+        }
+
+    </style>';
+
+    wp_add_inline_style( 'sage_css', $editor_content );
+}
+
+
+/**
  *  Favicon
  */
+
 add_action('wp_head', __NAMESPACE__ . '\\sage_site_favicon');
+
 function sage_site_favicon() {
     $options = vp_option('vpt_option');
     $favicon = $options['favicon'] ? $options['favicon'] : get_template_directory_uri().'/dist/images/favicon.ico';
     echo '<link rel="shortcut icon" href="'. $favicon .'">';
 }
 
+
 /**
  * Remove image attributes
  */
+
 add_filter( 'post_thumbnail_html', __NAMESPACE__ . '\\sage_remove_thumbnail_dimensions', 10 );
 add_filter( 'image_send_to_editor', __NAMESPACE__ . '\\sage_remove_thumbnail_dimensions', 10 );
 add_filter( 'the_content', __NAMESPACE__ . '\\sage_remove_thumbnail_dimensions', 10 );
@@ -190,7 +399,6 @@ function sage_remove_thumbnail_dimensions( $html ) {
  * Register the html5 figure-non-responsive code fix.
  */
 add_filter( 'img_caption_shortcode', __NAMESPACE__ . '\\sage_img_caption_shortcode_filter', 10, 3 );
-
 function sage_img_caption_shortcode_filter($dummy, $attr, $content) {
   $atts = shortcode_atts( array(
       'id'      => '',
@@ -219,7 +427,7 @@ function sage_img_caption_shortcode_filter($dummy, $attr, $content) {
 }
 
 /**
- *  Allow upload SVG
+ * Allow upload SVG
  */
 add_filter('upload_mimes', __NAMESPACE__ . '\\sage_mime_types');
 function sage_mime_types($mimes) {

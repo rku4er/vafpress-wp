@@ -56,14 +56,14 @@ $theme_options = new VP_Option(array(
 /**
  * Create instances of Metaboxes
  */
-//$mb1 = new VP_Metabox($tmpl_mb1);
-$mb2 = new VP_Metabox($tmpl_mb2);
-//$mb3 = new VP_Metabox($tmpl_mb3);
-//$mb4 = new VP_Metabox($tmpl_mb4);
-//$mb5 = new VP_Metabox($tmpl_mb5);
-//$mb6 = new VP_Metabox($tmpl_mb6);
-//$mb7 = new VP_Metabox($tmpl_mb7);
-//$mb8 = new VP_Metabox($tmpl_mb8);
+//$mb1 = new VP_Metabox($tmpl_mb1); //VP Dependent Fields and Group
+//$mb2 = new VP_Metabox($tmpl_mb2); //VP Repeating Group With Binding Fields
+//$mb3 = new VP_Metabox($tmpl_mb3); //VP All Control Fields Demo
+//$mb4 = new VP_Metabox($tmpl_mb4); //VP All Notebox
+$mb5 = new VP_Metabox($tmpl_mb5); //VP Page Builder Sample
+//$mb6 = new VP_Metabox($tmpl_mb6); //VP Fixed Group With Item Bindings Fields
+//$mb7 = new VP_Metabox($tmpl_mb7); //VP HTML Binding
+//$mb8 = new VP_Metabox($tmpl_mb8); //VP Metabox on The Sidebar
 
 /**
  * Create instances of Shortcode Generator

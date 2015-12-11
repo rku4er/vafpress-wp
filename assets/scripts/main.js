@@ -64,58 +64,32 @@
             custom_inputs(form);
         });
 
-        // Set .wrap padding-top equal to navbar height
-        var wrapper = function(){
-          return {
-            spaceTop: function(){
-                $('.navbar-fixed-top').each(function(){
-                    var $self = $(this);
-                    $('.wrap').css('padding-top', $self.height());
-                });
-            }
-          };
-        };
-
-        // Set .navbar margin-top equal to #wpadminbar height
-        var navbar = function(){
-          return {
-            spaceTop: function(){
-                $('.navbar-fixed-top').each(function(){
-                    var $self = $(this);
-                    var adminbar = $('#wpadminbar');
-                    if(adminbar.length){
-                      $self.css('margin-top', adminbar.height());
-                    }
-                });
-            },
-            getHeight: function(){
-                [].forEach.call(document.querySelectorAll('.banner'), function(object){
-                  return object.clientHeight;
-                });
-            }
-          };
-        };
-
-        // Set slider min-height equal to screen height
-        var slider = function(){
-          return {
-            setHeight: function(){
-                [].forEach.call(document.querySelectorAll('.carousel-fullscreen .item'), function(object){
-                    var navbarHeight;
-                    [].forEach.call(document.querySelectorAll('.banner'), function(object){
-                        navbarHeight = object.clientHeight;
-                    });
-                    object.style.height = window.innerHeight - navbarHeight + 'px';
-                });
-            }
-          };
-        };
 
         // wait until users finishes resizing the browser
         var debouncedResize = debounce(function() {
-            wrapper().spaceTop();
-            navbar().spaceTop();
-            slider().setHeight();
+
+            $('.navbar-fixed-top').each(function(){
+                var $self = $(this);
+                $('.wrap').css('padding-top', $self.height());
+            });
+
+            $('.navbar-fixed-bottom').each(function(){
+                var $self = $(this);
+                $('.content-info').css('padding-bottom', $self.height());
+            });
+
+            $('.navbar-fixed-top').each(function(){
+                var $self = $(this);
+                var adminbar = $('#wpadminbar');
+                if(adminbar.length){
+                  $self.css('margin-top', adminbar.height());
+                }
+            });
+
+            $('.carousel-fullscreen .item').each(function(){
+                var $self = $(this);
+                $self.css('height', $(window).height() - $('.navbar-fixed-top').height() - $('.navbar-fixed-bottom').height());
+            });
 
             //align dropdown menus according to free space
             $('.dropdown').each(function(){
@@ -130,9 +104,6 @@
                     }
                 }
             });
-
-            //$('.wrap').css('padding-bottom', $('.content-info').height());
-            //$('.content-info').css('margin-top', -$('.content-info').height());
 
         }, 100);
 
@@ -187,15 +158,6 @@
 
         // Disable 300ms click delay on mobile
         FastClick.attach(document.body);
-
-        // WP admin bar fix
-        $('#wpadminbar').each(function(){
-            var $adminbar = $(this);
-
-            $('.navbar-fixed-top').css({
-                'margin-top' : $adminbar.height()
-            });
-        });
 
         // Tooltip
         $('.bs-tooltip').tooltip();

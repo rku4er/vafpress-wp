@@ -15,7 +15,7 @@
             margin: 0;
             &.selected,
             &:active{
-                background-color: transparentize($accent-color, 0.4);
+                background-color: $brand-primary;
                 color: #fff;
             }
         }

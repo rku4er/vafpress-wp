@@ -1,36 +1,37 @@
 /*
- * Selection color
- */
-*::-moz-selection {
-    color: #fff;
-    background: $brand-primary;
-    text-shadow: none;
-}
-*::selection {
-    color: #fff;
-    background: $brand-primary;
-    text-shadow: none;
-}
-
-/*
- * Headings margins
+ * Defaults
  */
 h1, h2, h3, h4, h5, h6{
      margin: 1.7em 0 .3em;
 }
 
+ul, ol{
+     margin: 1em 0;
+     padding-left: 25px;
+}
+
+p{
+    margin: 1em 0;
+}
+
+blockquote{
+    margin: 1em 0;
+}
+
+a{
+    transition: .2s cubic-bezier(0.19, 1, 0.22, 1);
+    transition-property: background-color, border-color, color;
+}
+
+
 /*
- * Sticky footer
+ * Add content space if navbar is fixed
  */
-html,
-body {
-    height: 100%;
-}
-.wrap {
-    @extend .clearfix;
-}
 .navbar-fixed-top ~ .wrap{
     padding-top: 78px;
+}
+.navbar-fixed-bottom ~ .content-info{
+    padding-bottom: 78px;
 }
 
 /*
@@ -40,14 +41,3 @@ body {
     position: static !important;
 }
 
-/*
- * More
- */
-a.more{
-     color: $accent-color;
-     text-transform: uppercase;
-     &:hover,
-     &:focus{
-          text-decoration: underline;
-     }
-}
