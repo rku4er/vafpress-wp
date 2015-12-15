@@ -3,7 +3,7 @@
 return array(
     'id'          => 'page_builder',
     'types'       => array('page'),
-    'title'       => __('VP Page Builder Sample', 'vp_textdomain'),
+    'title'       => __('Page Builder', 'vp_textdomain'),
     'priority'    => 'high',
     'template'    => array(
         array(
@@ -18,6 +18,24 @@ return array(
             'name'      => 'row',
             'title'     => __('Row', 'vp_textdomain'),
             'fields'    => array(
+                array(
+                    'type' => 'radiobutton',
+                    'name' => 'container_layout',
+                    'label' => __('Layout', 'vp_textdomain'),
+                    'items' => array(
+                        array(
+                            'value' => 'fixed',
+                            'label' => __('fixed', 'vp_textdomain'),
+                        ),
+                        array(
+                            'value' => 'fluid',
+                            'label' => __('fluid', 'vp_textdomain'),
+                        ),
+                    ),
+                    'default' => array(
+                        'fixed',
+                    ),
+                ),
                 array(
                     'type'      => 'group',
                     'repeating' => true,

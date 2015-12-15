@@ -339,12 +339,12 @@ function sage_products( $atts, $content = null ) {
 add_shortcode( 'container', __NAMESPACE__.'\\sage_container' );
 function sage_container( $atts, $content = null ) {
     $defaults = array (
-        'fluid' => false
+        'layout' => 'fixed'
     );
     $atts = wp_parse_args( $atts, $defaults );
 
     return sprintf('<div class="%s">%s</div>',
-        $atts['fluid'] ? 'container-fluid' : 'container',
+        ($atts['layout'] === 'fluid') ? 'container-fluid' : 'container',
         do_shortcode($content)
     );
 }

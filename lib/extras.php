@@ -152,16 +152,21 @@ function sage_page_template_builder($content){
 
         foreach( $rows as $row ) {
 
+            $layout = $row['container_layout'];
+
+            $html .= '[container layout="'. $layout .'"]';
             $html .= '[row]';
+
             $columns = $row['column'];
 
             foreach( $columns as $col ) {
                 $html .= '[column sm="'. $col['grid'] .'"]';
-                $html .= $col['content'];
+                $html .= do_shortcode($col['content']);
                 $html .= '[/column]';
             }
 
             $html .= '[/row]';
+            $html .= '[/container]';
         }
 
     }
@@ -334,7 +339,8 @@ function sage_custom_colors(){
             color: '. $options['menu_link_hover_color'] .';
         }
 
-        .dropdown-menu >li >a {
+        .navbar-default .navbar-nav .open .dropdown-menu >li >a,
+        .navbar-default .navbar-nav .dropdown-menu >li >a {
             background-color: '. $options['dropdown_link_bg_color'] .';
             color: '. $options['dropdown_link_color'] .';
             font-family: '. $options['dropdown_font_face'] .';
@@ -343,8 +349,11 @@ function sage_custom_colors(){
             font-size: '. $options['dropdown_font_size'] .'px;
             line-height: '. $options['dropdown_font_height'] .'em;
         }
-        .dropdown-menu >li >a:hover,
-        .dropdown-menu >li >a:focus {
+        .navbar-default .navbar-nav .dropdown-menu >li >a:hover,
+        .navbar-default .navbar-nav .dropdown-menu >li >a:focus,
+        .navbar-default .navbar-nav .open .dropdown-menu >li >a:hover,
+        .navbar-default .navbar-nav .open .dropdown-menu >li >a:focus,
+        .navbar-default .navbar-nav .dropdown-menu >li.active >a {
             background-color: '. $options['dropdown_link_hover_bg_color'] .';
             color: '. $options['dropdown_link_hover_color'] .';
         }

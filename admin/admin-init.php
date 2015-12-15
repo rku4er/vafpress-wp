@@ -56,7 +56,7 @@ $theme_options = new VP_Option(array(
 /**
  * Create instances of Metaboxes
  */
-//$mb1 = new VP_Metabox($tmpl_mb1); //VP Dependent Fields and Group
+$mb1 = new VP_Metabox($tmpl_mb1); // General Page Options
 //$mb2 = new VP_Metabox($tmpl_mb2); //VP Repeating Group With Binding Fields
 //$mb3 = new VP_Metabox($tmpl_mb3); //VP All Control Fields Demo
 //$mb4 = new VP_Metabox($tmpl_mb4); //VP All Notebox

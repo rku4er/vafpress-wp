@@ -1,14 +1,16 @@
 <?php
     use Roots\Sage\Titles;
 
-    $curr_ID = $wp_query->queried_object->ID;
-    $prefix = 'sage_page_options_';
-    $hide_header = get_post_meta( $curr_ID, $prefix .'hide_title', true );
+    $show_title = vp_metabox('page_options.show_title');
+    $title_options = vp_metabox('page_options.title_options.0');
+    $layout_class = ($title_options['title_layout'] === 'fluid') ? 'container-fluid' : 'container';
 ?>
 
-<?php if(!$hide_header): ?>
-<div class="page-header">
-    <h1> <?php echo Titles\title(); ?> </h1>
+<?php if($show_title): ?>
+<div class="page-header row">
+    <div class="<?php echo $layout_class ?>">
+        <h1> <?php echo Titles\title(); ?> </h1>
+    </div>
 </div>
 <?php endif; ?>
 

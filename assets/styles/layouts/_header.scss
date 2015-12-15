@@ -73,7 +73,6 @@
         position: absolute; 
         top: 0;
         left: 0;
-        border-radius: 100%;
         margin: 20px 0 0 20px;
     }
 
@@ -117,7 +116,6 @@
     margin: 0;
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
     border: 0 none;
-    max-width: 320px;
     font-size: inherit;
 
     transform: translate3d(0,30px,0);
@@ -131,6 +129,10 @@
     transition-duration: .2s;
     transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
     will-change: transform;
+
+    @media (min-width: $screen-sm-min) {
+        max-width: 320px;
+    }
 
     >li{
         &.active >a{
